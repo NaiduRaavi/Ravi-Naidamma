@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Objects Demo</title>
+<style>
+        body {
+            background-color: #d9f2ff;
+        }
+.main-heading {
+            text-align: center;
+            color: darkblue;
+            margin-top: 20px;
+        }
+.box {
+            width: 700px;
+            border: 3px solid black;
+            margin: 30px auto;
+            padding: 20px;
+            font-family: Arial;
+        }
+.title {
+            text-align: center;
+            border: 2px solid black;
+            width: 300px;
+            margin: 15px auto;
+            padding: 5px;
+            font-weight: bold;
+            background-color: #f2f2f2; /* Title background color */
+        }
+.section {
+            border-top: 2px solid black;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        /* Section specific background colors */
+        #arraySection {
+            background-color: #ffebcd; /* Light beige background for Array section */
+        }
+        #mathSection {
+            background-color: #e6ffe6; /* Light green background for Math section */
+        }
+        #dateSection {
+            background-color: #f7e6e6; /* Light pink background for Date section */
+        }
+        #stringSection {
+            background-color: #f2f0f0; /* Light gray background for String section */
+        }
+        /* New section for Document Object */
+        #documentSection {
+    background-color: lime;  /* Light cyan background */
+    padding: 20px;
+    border: 2px solid #00796b;
+}
+</style>
+<script>
+        // ---------------- ARRAY FUNCTIONS ----------------
+        function showArrayFunctions() {
+            var myarray1 = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+            var myarray2 = [1, 2, 3, 4, 5];
+document.getElementById("a1").innerHTML = myarray1;
+document.getElementById("a2").innerHTML = myarray2;
+document.getElementById("len1").innerHTML = myarray1.length;
+document.getElementById("len2").innerHTML = myarray2.length;
+document.getElementById("concat").innerHTML = myarray1.concat(myarray2);
+document.getElementById("join").innerHTML = myarray1.join(" - ");
+document.getElementById("pop").innerHTML = myarray1.pop();
+document.getElementById("reverse").innerHTML = myarray1.reverse();
+document.getElementById("shift").innerHTML = myarray1.shift();
+document.getElementById("sort").innerHTML = myarray1.sort();
+document.getElementById("tostring").innerHTML = myarray2.toString();
+        }
+        // -------- ARRAY OBJECT PROPERTIES --------
+        function showArrayProperties() {
+            var fruits = ["Apple", "Banana", "Mango", "Orange"];
+            var output = "";
+            output += "Array Length: " + fruits.length + "<br>";
+            output += "First Element: " + fruits[0] + "<br>";
+            output += "Last Element: " + fruits[fruits.length - 1] + "<br>";
+document.getElementById("arrayProps").innerHTML = output;
+        }
+        // ---------------- MATH OBJECT FUNCTIONS ----------------
+        function showMathFunctions() {
+document.getElementById("ceil").innerHTML = Math.ceil(12.6);
+document.getElementById("log").innerHTML = Math.log(12.6);
+document.getElementById("max").innerHTML = Math.max(12, 34, 15, 65);
+document.getElementById("min").innerHTML = Math.min(12, 34, 15, 65);
+document.getElementById("pow").innerHTML = Math.pow(10, 2);
+document.getElementById("random").innerHTML = Math.random();
+document.getElementById("round").innerHTML = Math.round(12.6);
+document.getElementById("sin").innerHTML = Math.sin(45);
+document.getElementById("sqrt").innerHTML = Math.sqrt(16);
+document.getElementById("tan").innerHTML = Math.tan(45);
+document.getElementById("dice").innerHTML = Math.floor(1 + Math.random() * 6);
+        }
+        // ---------------- MATH OBJECT PROPERTIES ----------------
+        function showMathProperties() {
+            var output = "";
+            output += "Math.PI : " + Math.PI + "<br>";
+            output += "Math.E : " + Math.E + "<br>";
+            output += "Math.LN2 : " + Math.LN2 + "<br>";
+            output += "Math.LN10 : " + Math.LN10 + "<br>";
+            output += "Math.SQRT2 : " + Math.SQRT2 + "<br>";
+            output += "Math.SQRT1_2 : " + Math.SQRT1_2 + "<br>";
+document.getElementById("mathProps").innerHTML = output;
+        }
+        // ---------------- DATE OBJECT FUNCTIONS ----------------
+        function showDateFunctions() {
+            var d = new Date();
+document.getElementById("date").innerHTML = d;
+document.getElementById("day").innerHTML = d.getDate();
+document.getElementById("seconds").innerHTML = d.getSeconds();
+document.getElementById("month").innerHTML = d.getMonth();
+document.getElementById("time").innerHTML = d.getTime();
+document.getElementById("hours").innerHTML = d.getHours();
+document.getElementById("year").innerHTML = d.getFullYear();
+        }
+        // ---------------- DATE OBJECT PROPERTIES ----------------
+        function showDateProperties() {
+            var d = new Date();
+            var output = "";
+            output += "Date Object: " + d + "<br>";
+            output += "Constructor: " + d.constructor + "<br>";
+            output += "Prototype Available: " + (Date.prototype ? "Yes" : "No") + "<br>";
+document.getElementById("dateProps").innerHTML = output;
+        }
+        // ---------------- STRING OBJECT FUNCTIONS ----------------
+        function showStringFunctions() {
+            var mystring = "Twinkle Twinkle Little Star";
+document.getElementById("str").innerHTML = mystring;
+document.getElementById("strlen").innerHTML = mystring.length;
+document.getElementById("bold").innerHTML = mystring.bold();
+document.getElementById("upper").innerHTML = mystring.toUpperCase();
+document.getElementById("lower").innerHTML = mystring.toLowerCase();
+document.getElementById("big").innerHTML = mystring.big();
+document.getElementById("small").innerHTML = mystring.small();
+document.getElementById("strike").innerHTML = mystring.strike();
+document.getElementById("substring").innerHTML = mystring.substring(8);
+document.getElementById("split").innerHTML = mystring.split('');
+document.getElementById("index").innerHTML = mystring.indexOf("Twinkle");
+document.getElementById("char").innerHTML = mystring.charAt(8);
+document.getElementById("blink").innerHTML = mystring.blink();
+        }
+        // ---------------- STRING OBJECT PROPERTIES ----------------
+        function showStringObjects() {
+            function employee(name, jobtitle, salary) {
+                this.name = name;
+this.jobtitle = jobtitle;
+this.salary = salary;
+            }
+employee.prototype.doj = 2007;
+            var emp1 = new employee("Nilima Aahuja", "Technical Writer", 10000);
+            var emp2 = new employee("Shilpa Verma", "HR Manager", 40000);
+            var emp3 = new employee("Ravi Kumar", "Developer", 50000);
+document.getElementById("emp1").innerHTML =
+                "Name: " + emp1.name +
+                "<br>Designation: " + emp1.jobtitle +
+                "<br>Salary: Rs." + emp1.salary;
+document.getElementById("emp2").innerHTML =
+                "Name: " + emp2.name +
+                "<br>Designation: " + emp2.jobtitle +
+                "<br>Date of Joining: " + emp2.doj +
+                "<br>Salary: Rs." + emp2.salary;
+document.getElementById("emp3").innerHTML =
+                "Name: " + emp3.name +
+                "<br>Designation: " + emp3.jobtitle +
+                "<br>Date of Joining: " + emp3.doj +
+                "<br>Salary: Rs." + emp3.salary;
+        }
+        // ---------------- DOCUMENT PROPERTIES ----------------
+        function showDocumentProperties() {
+document.getElementById("docURL").innerHTML = document.URL;
+document.getElementById("docState").innerHTML = document.readyState;
+document.getElementById("docTitle").innerHTML = document.title;
+document.getElementById("docModified").innerHTML = document.lastModified;
+document.getElementById("docCookie").innerHTML = document.cookie;
+document.getElementById("docReferrer").innerHTML = document.referrer;
+        }
+        // ---------------- DOCUMENT FUNCTIONS ----------------
+        function getElementCount() {
+            var abc = document.getElementsByName("nm");
+alert("Total name fields: " + abc.length);
+        }
+</script>
+</head>
+<body onload="showArrayFunctions(); showArrayProperties(); showMathProperties(); showMathFunctions(); showDateFunctions(); showDateProperties(); showStringObjects(); showStringFunctions(); showDocumentProperties(); getElementCount(); ">
+<h1 class="main-heading" align="center">JAVASCRIPT OBJECTS</h1>
+<div class="box">
+<!-- ARRAY FUNCTIONS -->
+<div class="title">Array Object Functions</div>
+<div class="section" id="arraySection">
+            Array 1: <span id="a1"></span><br>
+            Array 2: <span id="a2"></span><br>
+            Array 1 Length: <span id="len1"></span><br>
+            Array 2 Length: <span id="len2"></span><br>
+            Concatenated: <span id="concat"></span><br>
+            Joined: <span id="join"></span><br>
+            Pop: <span id="pop"></span><br>
+            Reverse: <span id="reverse"></span><br>
+            Shift: <span id="shift"></span><br>
+            Sort: <span id="sort"></span><br>
+ToString: <span id="tostring"></span><br>
+</div>
+<!-- ARRAY PROPERTIES -->
+<div class="title">Array Object Properties</div>
+<div class="section" id="arraySection">
+<div id="arrayProps"></div>
+</div>
+<!-- MATH FUNCTIONS -->
+<div class="title">Math Functions</div>
+<div class="section" id="mathSection">
+            Ceil: <span id="ceil"></span><br>
+            Log: <span id="log"></span><br>
+            Max: <span id="max"></span><br>
+            Min: <span id="min"></span><br>
+            Power: <span id="pow"></span><br>
+            Random: <span id="random"></span><br>
+            Round: <span id="round"></span><br>
+            Sin: <span id="sin"></span><br>
+            Sqrt: <span id="sqrt"></span><br>
+            Tan: <span id="tan"></span><br>
+            Dice (1-6): <span id="dice"></span><br>
+</div>
+<!-- MATH PROPERTIES -->
+<div class="title">Math Object Properties</div>
+<div class="section" id="mathSection">
+<div id="mathProps"></div>
+</div>
+<!-- DATE FUNCTIONS -->
+<div class="title">Date Functions</div>
+<div class="section" id="dateSection">
+            Current Date: <span id="date"></span><br>
+            Day: <span id="day"></span><br>
+            Seconds: <span id="seconds"></span><br>
+            Month: <span id="month"></span><br>
+            Time (ms): <span id="time"></span><br>
+            Hours: <span id="hours"></span><br>
+            Year: <span id="year"></span><br>
+</div>
+<!-- DATE PROPERTIES -->
+<div class="title">Date Object Properties</div>
+<div class="section" id="dateSection">
+<div id="dateProps"></div>
+</div>
+<!-- STRING OBJECT FUNCTIONS -->
+<div class="title">Different String Functions</div>
+<div class="section" id="stringSection">
+            String: <span id="str"></span><br>
+            Length: <span id="strlen"></span><br>
+            Bold: <span id="bold"></span><br>
+            Uppercase: <span id="upper"></span><br>
+            Lowercase: <span id="lower"></span><br>
+            Big: <span id="big"></span><br>
+            Small: <span id="small"></span><br>
+            Strike: <span id="strike"></span><br>
+            Substring (after 8): <span id="substring"></span><br>
+            Split: <span id="split"></span><br>
+            Index Of "Twinkle": <span id="index"></span><br>
+            Character at 8: <span id="char"></span><br>
+            Blink: <span id="blink"></span><br>
+</div>
+
+<!-- STRING OBJECT PROPERTIES -->
+<div class="title">String Properties (Employee Object)</div>
+<div class="section" id="stringSection">
+<div id="emp1"></div><br>
+<div id="emp2"></div><br>
+<div id="emp3"></div>
+</div>
+
+<!-- DOCUMENT METHODS -->
+<div class="title">Document Object Methods</div>
+<div class="Section" id="documentSection">
+            Enter First Name: <input name="nm" type="text"><br><br>
+            Enter Second Name: <input name="nm" type="text"><br><br>
+            Enter Third Name: <input name="nm" type="text"><br><br>
+<button onclick="getElementCount()">Count Name Fields</button>
+</div>
+<!-- DOCUMENT PROPERTIES -->
+<div class="title">Document Object Properties</div>
+<div class="section" id="documentSection">
+            URL: <span id="docURL"></span><br><br>
+            Ready State: <span id="docState"></span><br><br>
+            Title: <span id="docTitle"></span><br><br>
+            Last Modified: <span id="docModified"></span><br><br>
+            Cookie: <span id="docCookie"></span><br><br>
+            Referrer: <span id="docReferrer"></span>
+</div>
+</div>
+</body>
+</html>
